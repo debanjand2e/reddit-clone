@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<form action="" class="ui large form segment">
+  <h3 class="ui header">Add a Link</h3>
+
+
+  <div class="ui form">
+    <div class="two fields">
+      <div class="field">
+        <label for="title">Title</label>
+        <input name="title" type="text" placeholder="Enter Something" #newTitle>
+      </div>
+      <div class="field">
+        <label for="link">Link</label>
+        <input name="link" type="text" placeholder="eg: http://reddit.com" #newLink>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="desc">Description</label>
+      <textarea name="desc" #newDesc rows="2"></textarea>
+    </div>
+
+    <button (click)="addArticle(newTitle,newLink,newDesc)" class="ui right floated positive button">Submit</button>
+  </div>
+</form>
+
+<!-- <div class="ui success message">
+  <div class="header">Success</div>
+  <p>The entry has been added to the list of posts.</p>
+</div> -->
+
+<div class="ui grid posts">
+  <app-article *ngFor="let individualArticle of sortedArticles()" [article]="individualArticle"></app-article>
+</div>
+
+<router-outlet></router-outlet>
